@@ -1,0 +1,338 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import requests
+import matplotlib.pyplot as plt
+import seaborn as sns
+import plotly.express as px
+from sklearn.metrics import mean_squared_error, mean_absolute_percentage_error, mean_absolute_error
+from sklearn.model_selection import train_test_split
+import yfinance as yf
+from sklearn.preprocessing import MinMaxScaler
+
+# Configurando o menu lateral
+menu = st.sidebar.radio("Menu", ["Home", "Introdução", "Proposta analítica", "Proposta preditiva", "Dashboard", "Conclusão"])
+
+# Exibe conteúdo com base na opção selecionada
+if menu == "Home":
+
+    # Título da aplicação
+    st.title("O Impacto da ONG Passos Mágicos no Desempenho Educacional")
+
+    # Adiciona uma imagem a partir de uma URL
+    st.image(
+        "https://niverdobem.com.br/wp-content/uploads/2020/10/18A3D82B-2FDB-4355-A9D1-FBAA99E56F41.jpeg",
+        use_container_width=True,
+    )
+    st.subheader("Projeto: Pós Tech Alura/Fiap - Datathon Fase 5")
+    st.write("Data: Fev/2025")
+    st.markdown('<h2 style="color:#e61859;">Integrantes do Projeto</h2>', unsafe_allow_html=True)
+    st.write("**Rafael Morais Vidal RM 354846**")
+    st.write("**Rafael Lopes Tanaka RM 356096**")
+    st.write("**Rodrigo Kenji Rossetti Inonhe RM 354906**")
+    st.write("**Lucas Morikawa Giovanini RM 355007**")
+
+    st.markdown('<h2 style="color:#e61859;">O Desafio</h2>', unsafe_allow_html=True)
+    st.write(
+        """O grande objetivo do Datathon é você como cientista de dados criar uma
+            proposta preditiva, ou como analista de dados realizar uma proposta analítica
+            para demonstrar o impacto que a ONG “Passos Mágicos” tem realizado sobre a
+            comunidade que atende. """
+
+        """ A associação busca instrumentalizar o uso da educação como ferramenta
+              para a mudança das condições de vida das crianças e jovens em vulnerabilidade
+              social. Com base no dataset de pesquisa extensiva do desenvolvimento
+              educacional no período de 2020, 2021 e 2022.
+              """
+    )
+    st.markdown('<h2 style="color:#e61859;">O Objetivo</h2>', unsafe_allow_html=True)
+    st.write("""• Proposta analítica""")
+    st.write(
+        """  A ideia é demonstrar os impactos que a ONG “Passos
+              Mágicos” realizou sobre o desempenho de estudantes e levantar indicadores de
+              performance. Sendo assim, deve-se criar um dashboard e storytelling
+              contando uma história com os dados para auxiliar a Passos Mágicos a tomar as
+              melhores decisões com base nos indicadores e conhecer o perfil dos estudantes.
+              """
+    )
+    st.write(
+        """• Proposta preditiva"""
+    )
+    st.write(
+        """Criar um modelo preditivo para prever o
+            comportamento do estudante com base em algumas variáveis que podem ser
+            cruciais para a identificação de seu desenvolvimento. Na proposta preditiva,
+            você pode utilizar a criatividade para propor uma solução de algoritmo
+            supervisionado ou não supervisionado. A ideia é utilizar um dos conhecimentos
+            aprendidos no curso como solução (machine learning, deep learning ou
+            processamento de linguagem natural).
+            """
+    )
+
+elif menu == "Introdução":
+  
+
+  # Título da aplicação
+  st.markdown('<h2 style="color:#e61859;">Introdução</h2>', unsafe_allow_html=True)
+
+  # Adiciona uma imagem a partir de uma URL
+  st.image("https://passosmagicos.org.br/wp-content/uploads/2020/11/abraco-meninos.jpg",use_container_width=True,)
+  
+  st.write("""A educação é um dos pilares fundamentais para o desenvolvimento social e individual, e a ONG Passos Mágicos tem desempenhado um papel 
+            essencial na transformação da realidade de centenas de estudantes. Este estudo busca analisar, por meio de uma abordagem baseada em dados, 
+            os impactos do trabalho da ONG no desempenho acadêmico dos alunos atendidos ao longo dos anos de 2020, 2021 e 2022.""")
+
+  st.write("""Utilizando indicadores educacionais estruturados e métricas estatísticas, esta análise explora a evolução dos estudantes em três principais dimensões:""")
+
+  st.write("""**Indicador de Autoavaliação Acadêmica (IAA):** Mede a percepção do próprio aluno sobre seu desempenho e progresso.""")
+  
+  st.write("""**Índice de Desenvolvimento Educacional (INDE):** Avalia o desenvolvimento global dos estudantes com base em um conjunto de critérios pedagógicos.""")
+  
+  st.write("""**Índice de Desempenho Acadêmico (IDA):** Mensura objetivamente a evolução das notas dos estudantes ao longo dos anos.""")
+   
+  st.write("""Além disso, a análise se aprofunda na correlação entre diferentes variáveis educacionais, permitindo identificar padrões de avanço, 
+            estabilidade ou retrocesso dentro da jornada educacional dos alunos. Comparações entre os anos de 2020, 2021 e 2022 são feitas 
+            para compreender a progressão e destacar como a intervenção da Passos Mágicos tem impactado positivamente os estudantes.""")
+  
+  st.write("""Os resultados desta investigação fornecem uma visão quantitativa do papel da ONG na redução da defasagem escolar, 
+            melhoria do engajamento estudantil e aumento da performance acadêmica. Ao longo deste estudo, os dados são apresentados 
+            de forma clara e visual, utilizando análises estatísticas e gráficos para ilustrar os efeitos tangíveis do suporte pedagógico oferecido.""")
+
+  st.write("""Por fim, espera-se que esta análise contribua para uma compreensão mais ampla do impacto social da educação e forneça subsídios para a 
+              expansão e aprimoramento das ações desenvolvidas pela Passos Mágicos, garantindo que ainda mais estudantes tenham acesso a oportunidades 
+              de aprendizado e crescimento acadêmico.""")
+
+
+  # Título da aplicação
+  st.markdown('<h2 style="color:#e61859;">A Importância dos Dados para a Análise do Impacto da ONG Passos Mágicos</h2>', unsafe_allow_html=True)
+
+  # Adiciona uma imagem a partir de uma URL
+  st.image("https://www.sponte.com.br/hubfs/Imported_Blog_Media/importancia-da-coleta-e-analise-de-dados-educacionais-4.jpg",use_container_width=True,)
+
+  st.write("""A utilização de dados na avaliação de projetos sociais, como o desenvolvido pela ONG Passos Mágicos, é fundamental para transformar percepções
+             subjetivas em evidências concretas, garantindo credibilidade e clareza na mensuração do impacto. No contexto educacional, onde as transformações são 
+             graduais e multifacetadas, os dados atuam como uma lente de precisão, revelando padrões, progressos e desafios que, de outra forma, poderiam permanecer ocultos.""")  
+
+  st.write("""No caso específico deste estudo, os dados coletados entre 2020 e 2022 — período marcado por desafios sem precedentes devido à pandemia — permitem não apenas quantificar
+             o impacto da ONG, mas também contextualizá-lo frente a um cenário de crise educacional global. A análise estruturada em três indicadores (IAA, INDE e IDA) oferece uma 
+             abordagem holística, combinando dimensões subjetivas (como a autoavaliação dos alunos) e objetivas (como notas e critérios pedagógicos). 
+             Essa triangulação metodológica é essencial para evitar viéses e capturar nuances do desenvolvimento educacional que métricas isoladas não revelariam.""")  
+
+  st.write("""Os dados conferem rigor acadêmico à análise, transformando histórias individuais em tendências coletivas. Por exemplo, o Índice de Desempenho Acadêmico (IDA) 
+            permite verificar se as intervenções pedagógicas da ONG resultaram em melhorias mensuráveis nas notas dos alunos, enquanto o Indicador de Autoavaliação Acadêmica (IAA) 
+            revela como os estudantes percebem seu próprio crescimento, um fator crítico para motivação e engajamento. Já o INDE integra múltiplas variáveis, como participação em 
+            atividades extracurriculares e domínio de competências socioemocionais, oferecendo uma visão sistêmica do desenvolvimento educacional.""")              
+
+  st.write("""Em um cenário onde projetos sociais frequentemente enfrentam ceticismo quanto a seu impacto real, a análise baseada em dados posiciona a ONG Passos Mágicos 
+            como um modelo de excelência e transparência. Os indicadores IAA, INDE e IDA, aliados à correlação estatística e à análise temporal, não apenas validam o trabalho já realizado, 
+            mas também iluminam caminhos para otimizá-lo. Assim, os dados transcendem sua função técnica: tornam-se instrumentos de transformação social, capazes de amplificar vozes, guiar 
+            decisões e, acima de tudo, garantir que cada "passo mágico" dos alunos seja um avanço mensurável em direção a um futuro educacional mais justo e inclusivo.""")    
+
+
+
+elif menu == "Proposta analítica":
+  # Título da aplicação
+
+  st.markdown('<h2 style="color:#e61859;">Análise exploratória de dados</h2>', unsafe_allow_html=True)
+
+  st.image("https://media.licdn.com/dms/image/D4D12AQFIpZ5f8JSSUQ/article-cover_image-shrink_720_1280/0/1687819271214?e=2147483647&v=beta&t=VkFfe3IHtb2TBzxE6iAN5erYau7vy27yxfGzshSW4sQ",use_container_width=True,) 
+
+
+  st.markdown('<h3 style="color:#e61859;">Análise da Evolução do INDE ao Longo dos Anos (2020-2022)</h3>', unsafe_allow_html=True)
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "evo_media_inde.png"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.write("""Com base nos dados apresentados no gráfico, podemos realizar uma análise mais aprofundada da evolução do INDE (Índice de Desenvolvimento Educacional) ao longo dos anos de 2020 a 2022, buscando identificar possíveis causas para as variações observadas.""")    
+
+  st.write("""**2020:** O INDE inicia o período com uma média de 5.12, indicando um nível de desenvolvimento educacional considerado razoável, porém com espaço para melhorias. A pandemia de COVID-19, pode ter afetado o desempenho dos alunos em 2020, impactando os resultados observados.""")    
+
+  st.write("""**2021:** Há um salto significativo para 6.89, sugerindo um avanço notável no desenvolvimento educacional dos alunos.""")    
+
+  st.write("""**2022:** O INDE atinge o ápice com 7.65, evidenciando uma melhora contínua e consistente ao longo do período analisado.""")  
+
+#############################################################################################################################################################################################
+
+  st.markdown('<h3 style="color:#e61859;">Análise do Gráfico: Distribuição de Alunos por Nível de Desenvolvimento (Pedra)</h3>', unsafe_allow_html=True)
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "qtd_alunos_pedras.png"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+  st.write("""O gráfico apresentado revela a distribuição do número total de alunos (2020-2022) em cada nível de desenvolvimento, classificados como "pedras" com base em seus resultados no INDE (Índice de Desenvolvimento Educacional). Vamos analisar cada categoria:""")    
+
+  st.write("""**1. Ametista:**""")
+  st.write("""**Total de Alunos: 979**""")      
+  st.write("""A Ametista representa o grupo com o maior número de alunos, indicando um forte desempenho no INDE, já que esta categoria
+           engloba os alunos com pontuação entre 6,868 e 8,230. Este resultado sugere que uma parcela significativa dos alunos demonstra um desenvolvimento educacional sólido, próximo ao nível mais alto.""")    
+
+  st.write("""**2. Ágata:**""")
+  st.write("""**Total de Alunos: 599**""")      
+  st.write("""O grupo Ágata, com 599 alunos, representa o segundo maior grupo. Agata corresponde aos alunos com pontuação INDE entre 5,506 e 6,868, o que ainda indica um desempenho educacional positivo, porém com margem para melhorias em relação ao grupo""")    
+
+  st.write("""**3. Quartzo:**""")
+  st.write("""**Total de Alunos: 372**""")      
+  st.write("""O Quartzo, com 372 alunos, aponta para um grupo com um desempenho intermediário no INDE (2,405 a 5,506). Este grupo pode necessitar de maior atenção e investimento para alcançar os níveis de desenvolvimento mais elevados.""")    
+
+  st.write("""**4. Topázio:**""")
+  st.write("""**Total de Alunos: 323**""")      
+  st.write("""O Topázio, com 323 alunos, representa o grupo com menor número de alunos. Esta categoria corresponde aos alunos com pontuação INDE entre 8,230 e 9,294, o que sugere que este grupo atingiu o nível de desenvolvimento mais alto.""")    
+
+  st.markdown('<h5 style="color:#e61859;">Considerações Adicionais</h5>', unsafe_allow_html=True)    
+  st.write("""**Fatores Socioeconômicos:** É crucial considerar que o desempenho no INDE pode ser influenciado por fatores socioeconômicos e familiares.""")      
+  st.write("""**Ações da Instituição:** As ações e projetos desenvolvidos pela instituição podem ter um impacto significativo na progressão dos alunos entre os níveis de desenvolvimento.""")      
+  st.write("""**Necessidade de Acompanhamento:** Os grupos Quartzo e Ágata, por representarem a maioria dos alunos, necessitam de acompanhamento pedagógico e ações direcionadas para que progridam para os níveis Ametista e Topázio.""")      
+
+
+#############################################################################################################################################################################################
+
+  st.markdown('<h3 style="color:#e61859;">Média das Notas por Matéria Escolar (2022)</h3>', unsafe_allow_html=True)
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "media_notas_2022.png"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.write("""O gráfico apresenta a média das notas dos alunos em três matérias escolares: Português, Inglês e Matemática, no ano de 2022. Através da análise do gráfico, podemos extrair os seguintes insights:""")    
+
+  st.markdown('<h5 style="color:#e61859;">Desempenho em Matemática</h5>', unsafe_allow_html=True)     
+  st.write("""A média da turma em Matemática é de 6.3, a mais alta entre as três matérias.""")    
+  st.write("""Este resultado sugere um bom desempenho geral da turma em Matemática, indicando que a maioria dos alunos obteve notas acima da média nesta disciplina.""")    
+  st.write("""É importante investigar os métodos de ensino e recursos utilizados em Matemática que podem ter contribuído para este bom desempenho.""")    
+
+  st.markdown('<h5 style="color:#e61859;">Desempenho em Português e Inglês</h5>', unsafe_allow_html=True)      
+  st.write("""As médias em Português e Inglês são ambas de 5.6,consideravelmente inferiores à média em Matemática.""")    
+  st.write("""Este resultado sugere que a turma pode ter tido mais dificuldades em Português e Inglês em comparação com Matemática.""")    
+
+  st.markdown('<h5 style="color:#e61859;">Comparação entre as matérias</h5>', unsafe_allow_html=True)      
+  st.write("""A diferença de 0.7 pontos na média entre Matemática e as demais matérias pode parecer pequena, mas em termos de desempenho escolar, representa uma diferença considerável.""")    
+  st.write("""É importante que a escola investigue as possíveis causas dessa diferença e implemente medidas para melhorar o desempenho dos alunos em Português e Inglês, buscando equiparar o nível de aprendizado em todas as matérias.""")  
+
+  st.markdown('<h5 style="color:#e61859;">Insights e Recomendações</h5>', unsafe_allow_html=True)      
+  st.write("""**Investigar as causas do bom desempenho em Matemática:** É importante identificar os fatores que contribuíram para o bom desempenho da turma em Matemática para replicar as estratégias em outras matérias.""")    
+  st.write("""**Implementar medidas para melhorar o desempenho em Português e Inglês:** É fundamental que a escola adote medidas para melhorar o desempenho dos alunos em Português e Inglês, como:""")  
+  st.write("""• Revisão dos métodos de ensino.""")  
+  st.write("""• Criação de atividades de reforço.""")  
+  st.write("""• Oferecimento de apoio individualizado aos alunos com mais dificuldades.""")  
+  st.write("""• Investimento em recursos didáticos.""")  
+  st.write("""• Maior acompanhamento do aprendizado dos alunos.""")  
+
+  st.write("""**Considerar os fatores externos:** É importante levar em consideração os fatores externos que podem estar afetando o desempenho dos alunos e buscar formas de minimizar o impacto negativo desses fatores.""")  
+
+#############################################################################################################################################################################################
+
+
+
+
+elif menu == "Proposta preditiva":
+
+  st.markdown('<h2 style="color:#e61859;">Proposta preditiva</h2>', unsafe_allow_html=True)
+  st.image(
+        "https://www.deeplearningbook.com.br/wp-content/uploads/2022/04/Machine-Learning-Guia-Definitivo.jpeg",
+        use_container_width=True,
+  )
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  dfp = dfb.sort_index()
+  dfp = dfp.reset_index()  
+  
+  # Aplicando o modelo Prophet
+  model_prophet = Prophet()
+  model_prophet.fit(dfp)
+  future = model_prophet.make_future_dataframe(periods=90, freq='B') # Vamos usar um periodo de 90 dias para frente, com uma frequencia B de dias uteis
+  forecast = model_prophet.predict(future) # Criando as previsoes.
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+#################################################################################################################################################
+
+elif menu == "Dashboard":
+
+  # Título da aplicação
+  st.markdown('<h2 style="color:#e61859;">Dashboard</h2>', unsafe_allow_html=True)
+  
+  # URL do relatório do Power BI (substitua pelo link do seu relatório)
+  power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiNDBjMDBlYjUtMzRmOC00YzkyLTg5NGUtYTg5MWNhN2JiMDI0IiwidCI6ImVmYTU1OWEyLTJmOTctNGRkNi1hMmFlLThhYjAyZDliMzMyOSJ9"
+
+  # Incorporando o Power BI com iframe
+  st.components.v1.iframe(power_bi_url, width=800, height=600)
+
+  st.write("Para acessar o dashboard em uma nova página, clique abaixo")
+  st.markdown(
+      """
+      <a href="https://app.powerbi.com/view?r=eyJrIjoiNDBjMDBlYjUtMzRmOC00YzkyLTg5NGUtYTg5MWNhN2JiMDI0IiwidCI6ImVmYTU1OWEyLTJmOTctNGRkNi1hMmFlLThhYjAyZDliMzMyOSJ9" target="_blank" style="text-decoration:none; color:#e61859; font-size:18px;">
+      DASHBOARD</a>
+      """,
+      unsafe_allow_html=True)    
+
+elif menu == "Conclusão":
+
+  # Título da aplicação
+  st.markdown('<h2 style="color:#e61859;">Conclusão do Projeto de Análise e Previsão do Preço do Petróleo Brent</h2>', unsafe_allow_html=True)
+
+  st.write("""O projeto de análise e previsão do preço do petróleo Brent revelou a complexidade inerente a um mercado globalmente 
+            estratégico e altamente volátil. Desde as oscilações históricas impulsionadas por eventos geopolíticos até flutuações sazonais e transições econômicas, 
+            nosso estudo trouxe à tona insights valiosos sobre padrões passados, fatores determinantes e possibilidades futuras, respondendo às principais perguntas que nortearam o trabalho.""")
+
+  st.markdown('<h3 style="color:#e61859;">Respostas às Perguntas do Estudo</h3>', unsafe_allow_html=True)
+
+  st.write("""1. **Quais são os padrões históricos do mercado?**""")
+  st.write("""- Identificamos tendências sazonais claras, como os preços mais baixos em dezembro e janeiro, associados à baixa demanda e estoques elevados, e aumentos significativos em junho e julho devido à alta demanda no verão do hemisfério norte.""")
+  st.write("""- Eventos como a Guerra do Golfo (1990), o pico histórico de 2008 e a queda de 2020, causada pela pandemia de COVID-19, são exemplos das flutuações abruptas que caracterizam esse mercado volátil.""")
+
+  st.write("""2. **O que impulsiona as flutuações de preço?**""")
+  st.write("""- **Fatores geopolíticos**: Conflitos no Oriente Médio e decisões da OPEP.""")
+  st.write("""- **Fatores econômicos**: Crises financeiras e transições para fontes renováveis desafiam padrões tradicionais.""")
+  st.write("""- **Fatores sazonais**: Estações do ano alteram a demanda, enquanto estoques e produção influenciam preços.""")
+  st.write("""- **Eventos climáticos**: Furacões e interrupções inesperadas na produção adicionam um elemento imprevisível.""")
+
+  st.write("""3. **Como é possível prever as tendências futuras?**""")
+  st.write("""- Utilizando modelos robustos, como o LSTM, que lidam com padrões complexos e não lineares em cenários voláteis de curto prazo.""")
+  st.write("""- O Prophet mostrou-se eficaz para análises de longo prazo em cenários estáveis, reforçando a importância de usar modelos complementares.""")
+
+  st.markdown('<h3 style="color:#e61859;">Modelo Selecionado</h3>', unsafe_allow_html=True)
+  st.write("""Após comparar Prophet, LSTM e RNN Regressor, o LSTM destacou-se como o mais adequado para previsões operacionais de curto prazo devido à sua 
+            capacidade de capturar padrões não lineares e seu desempenho superior em métricas como MAPE, RMSE e MAE. Enquanto o Prophet continua valioso para análises 
+            estratégicas de longo prazo, o LSTM atende às exigências de precisão e agilidade de um mercado sensível a mudanças rápidas.""")
+
+  st.markdown('<h3 style="color:#e61859;">Desafios e Relevância</h3>', unsafe_allow_html=True)
+  st.write("""O estudo ressaltou desafios como a imprevisibilidade de eventos geopolíticos, a transição para energias renováveis e a influência de fatores climáticos. 
+            Esses elementos reforçam a necessidade de modelos preditivos que considerem variáveis exógenas para maior precisão.""")
+  st.write("""A análise revelou a resiliência do mercado, evidenciada por padrões de recuperação após choques e pela influência das decisões estratégicas da OPEP. 
+            Esses insights são essenciais para investidores, indústrias e formuladores de políticas públicas, ajudando na gestão de riscos e na tomada de decisões estratégicas.""")
+
+  st.markdown('<h3 style="color:#e61859;">Conclusão Final: O Futuro à Luz do Passado</h3>', unsafe_allow_html=True)
+  st.write("""Assim como o Brent reflete o pulso da economia global, este projeto ilustra o poder transformador da análise de dados.
+            Compreender os padrões históricos e antecipar tendências não é apenas um diferencial competitivo, mas uma necessidade estratégica. 
+            Ao integrar ciência de dados, conhecimento do mercado e modelos avançados, criamos não apenas previsões, mas um mapa para navegar as complexidades de um mundo em constante transformação.""")
+  st.write("""Este estudo demonstrou que a previsão de preços do petróleo Brent exige uma abordagem que equilibre análises quantitativas robustas e considerações qualitativas sobre fatores externos. 
+            O LSTM, com sua capacidade de lidar com padrões complexos, provou ser a melhor escolha para previsões operacionais de curto prazo. No entanto, 
+            o Prophet, com validação cruzada, permanece uma ferramenta valiosa para análises estratégicas de longo prazo.""")
+  st.write("""Compreender padrões históricos e antecipar tendências futuras não é apenas uma vantagem competitiva, mas uma necessidade em um mercado global tão estratégico. 
+            Este estudo reforça a importância de unir ciência de dados, tecnologia e expertise de mercado para enfrentar os desafios e aproveitar as oportunidades de um mundo em constante transformação. 
+            O Brent continuará sendo o termômetro da economia mundial, e, agora, estamos mais preparados para interpretar o que ele nos revela.""")
