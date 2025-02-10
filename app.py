@@ -399,7 +399,7 @@ elif menu == "Proposta preditiva":
 
   st.image("https://7793103.fs1.hubspotusercontent-na1.net/hubfs/7793103/Imported_Blog_Media/machine-redimensionado.jpg",use_container_width=True,) 
 
-  st.markdown('<h3 style="color:#e61859;">Queremos entender como os avaliadores de desempenho influeciam e predizem sobre o target que é indicado_bolsa</h3>', unsafe_allow_html=True)
+  st.markdown('<h3 style="color:#e61859;">Modelo para prever a indicação de bolsas com base nos avaliadores de desempenho</h3>', unsafe_allow_html=True)
 
   # Código usado para leitura e exibição da tabela
   codigo = """
