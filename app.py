@@ -244,30 +244,753 @@ elif menu == "Proposta analítica":
 #############################################################################################################################################################################################
 
 
+  st.markdown('<h3 style="color:#e61859;">Análise de impacto do nível de defasagem nos indicadores de aprendizado (IDA) e desenvolvimento educacional (INDE)</h3>', unsafe_allow_html=True)
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "correlacao_defasagem.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.write("""A análise realizada buscou entender a relação entre o nível de defasagem dos alunos e seus indicadores de desempenho. 
+              Os gráficos de dispersão mostram a distribuição dos alunos em relação ao nível de defasagem e seus respectivos indicadores educacionais.""")    
+
+  st.markdown('<h5 style="color:#e61859;">Correlação entre Defasagem e INDE</h5>', unsafe_allow_html=True)     
+  st.write("""O gráfico sugere uma correlação positiva fraca a moderada (coeficiente ≈ 0.33).""")    
+  st.write("""Isso significa que, conforme a defasagem aumenta, o INDE tende a ser menor.""")    
+  st.write("""No entanto, os pontos estão bastante dispersos, indicando que outros fatores podem estar influenciando o desempenho.""")    
+
+  st.markdown('<h5 style="color:#e61859;">Correlação entre Defasagem e IDA</h5>', unsafe_allow_html=True)     
+  st.write("""A correlação entre Defasagem e IDA também é positiva, mas mais fraca (≈ 0.18).""")    
+  st.write("""Isso indica que a defasagem tem um impacto pequeno sobre o aprendizado medido pelo IDA.""")    
+  st.write("""A dispersão dos dados mostra que há alunos com diferentes níveis de defasagem que ainda conseguem manter um IDA alto.""")    
+
+  st.markdown('<h5 style="color:#e61859;">Correlação entre INDE e IDA</h5>', unsafe_allow_html=True)     
+  st.write("""A correlação entre INDE e IDA é forte e positiva (0.85).""")    
+  st.write("""Isso significa que os alunos com melhores índices de aprendizado (IDA) também apresentam maiores níveis de desenvolvimento educacional (INDE).""")    
+  st.write("""Esse resultado faz sentido, pois um aluno que aprende mais tende a se desenvolver melhor ao longo do tempo.""")    
+
+
+  st.write("""A defasagem tem um impacto moderado no desenvolvimento educacional (INDE), mas um impacto mais fraco no aprendizado (IDA).""")    
+  st.write("""Os alunos com maior defasagem tendem a apresentar um desempenho menor, mas há muita variabilidade nos dados.""")    
+  st.write("""O forte vínculo entre INDE e IDA sugere que estratégias para melhorar o aprendizado podem ajudar no desenvolvimento geral do aluno, independentemente da defasagem inicial.""")    
+
+
+
+#############################################################################################################################################################################################
+
+  st.markdown('<h3 style="color:#e61859;">Análise de Comparação do INDE e IDA entre Diferentes Níveis de Defasagem</h3>', unsafe_allow_html=True)
+
+  st.write("""Aqui os gráficos fornecem uma visão da evolução do Indicador de Aprendizado (IDA) e do Índice de Desenvolvimento Educacional (INDE) 
+            ao longo dos anos (2020-2022), segmentados por diferentes níveis de defasagem educacional (Baixa, Média e Alta).""")    
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "evolucao_ida_defasagem.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.markdown('<h5 style="color:#e61859;">Evolução do IDA por Nível de Defasagem</h5>', unsafe_allow_html=True)     
+  st.write("""O IDA apresenta uma queda significativa entre 2020 e 2021 para todos os níveis de defasagem.""")    
+  st.write("""Os alunos com defasagem baixa tiveram o maior impacto negativo, com uma queda mais acentuada no IDA.""")    
+  st.write("""Em 2022, há uma recuperação no IDA, indicando uma possível melhora no aprendizado dos alunos.""")    
+  st.write("""Mesmo com a recuperação, alunos com defasagem baixa ainda têm o menor IDA, enquanto os com defasagem alta mantêm o melhor desempenho.""")    
+
+  st.write("""A queda no IDA em 2021 pode estar associada a impactos externos, como dificuldades na aprendizagem durante a pandemia.""")    
+  st.write("""A recuperação em 2022 sugere medidas de intervenção bem-sucedidas, mas alunos com menor defasagem (teoricamente com melhor base educacional) foram mais impactados negativamente.""")    
+  st.write("""Estratégias de reforço devem ser mais focadas nos alunos com menor defasagem, garantindo que a recuperação do aprendizado seja equilibrada entre todos os grupos.""")    
+
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "evolucao_inde_defasagem.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.markdown('<h5 style="color:#e61859;">Evolução do INDE por Nível de Defasagem</h5>', unsafe_allow_html=True)     
+  st.write("""O INDE cai drasticamente para todos os níveis de defasagem entre 2020 e 2021.""")    
+  st.write("""Em 2021, o INDE atinge praticamente zero para todos os níveis de defasagem.""")    
+  st.write("""Em 2022, há uma forte recuperação do INDE, mas o grupo com baixa defasagem teve o crescimento mais expressivo.""")    
+
+  st.write("""A queda extrema do INDE em 2021 pode estar relacionada aos desafios educacionais enfrentados nesse ano, como mudanças no ensino remoto ou falta de acesso adequado a recursos educacionais.""")    
+  st.write("""A forte recuperação do INDE em 2022 sugere ações eficazes da ONG para reverter os impactos negativos.""")    
+  st.write("""O grupo de baixa defasagem teve o maior crescimento do INDE, o que pode indicar que oportunidades e reforços educacionais foram mais bem aproveitados por alunos com melhor base de conhecimento.""")    
+  st.write("""Para manter um crescimento sustentável, a ONG pode considerar ações mais específicas para alunos com maior defasagem, garantindo que eles também tenham um avanço expressivo.""")    
+
+  st.write("""Os gráficos mostram que 2021 foi um ano crítico para o aprendizado e o desenvolvimento educacional dos alunos, independentemente do nível de defasagem. 
+            No entanto, as ações implementadas pela ONG "Passos Mágicos" parecem ter sido eficazes para promover uma recuperação em 2022.""")    
+
+
+
+#############################################################################################################################################################################################
+
+  st.markdown('<h3 style="color:#e61859;">Análise da Relação entre Recomendações das Equipes de Avaliação e Desempenho dos Alunos</h3>', unsafe_allow_html=True)
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "ida_qtd_recomendacoes.png"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  st.markdown('<h5 style="color:#e61859;">Gráfico IDA por Quantidade de Recomendações (2021)</h5>', unsafe_allow_html=True)    
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.write("""O gráfico sugere que alunos com 4 recomendações têm um IDA mais alto (próximo de 4), enquanto aqueles com 0 recomendações apresentam desempenho mais baixo.""")    
+  st.write("""Há um aumento gradual no IDA conforme o número de recomendações aumenta, indicando uma possível correlação positiva entre recomendações e desempenho.""")    
+
+  st.write("""Alunos que recebem mais recomendações (provavelmente orientações ou intervenções pedagógicas) tendem a ter um melhor aprendizado, refletido no IDA. 
+          Isso pode indicar que as recomendações são eficazes para aprimorar o desempenho acadêmico.""")    
+
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "inde_qtd_recomendacoes.png"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  st.markdown('<h5 style="color:#e61859;">Gráfico INDE por Quantidade de Recomendações (2021)</h5>', unsafe_allow_html=True)   
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+  st.write("""Os dados estão altamente dispersos, com valores de INDE variando drasticamente para cada quantidade de recomendações. Por exemplo, alunos com 0 recomendações podem ter INDE entre 0 e 156.""")    
+  st.write("""Não há uma tendência clara de aumento ou diminuição do INDE conforme as recomendações aumentam.""")
+
+  st.write("""A relação entre recomendações e INDE é menos evidente do que no IDA. Isso pode indicar que:""")   
+  st.write("""O INDE é influenciado por fatores além das recomendações (como contexto socioeconômico ou infraestrutura escolar).""")   
+  st.write("""As recomendações podem impactar aspectos específicos do aprendizado (medidos pelo IDA), mas não o desenvolvimento educacional geral (medido pelo INDE).""")   
+
+
+  st.markdown('<h5 style="color:#e61859;">Conclusões e interpretação</h5>', unsafe_allow_html=True)   
+
+  st.write("""Correlação Positiva no IDA: Alunos com mais recomendações apresentam melhoria no aprendizado, sugerindo que as orientações das equipes de avaliação são eficazes.""")   
+  st.write("""Dispersão no INDE: A falta de padrão no INDE indica que outros fatores (como políticas públicas ou recursos escolares) podem ser mais relevantes para o desenvolvimento educacional global.""")   
+  st.write("""Limitações dos Dados: A amostra pequena (apenas 0, 2, 4 recomendações no IDA) e a dispersão no INDE exigem cautela nas conclusões.""")   
+
+  st.write("""As recomendações parecem ter um impacto positivo no aprendizado específico (IDA), mas seu efeito no desenvolvimento educacional amplo (INDE) é menos claro. Recomenda-se ampliar o acompanhamento pedagógico e investigar fatores externos para melhorar o INDE.""")   
+
+#############################################################################################################################################################################################
 
 
 elif menu == "Proposta preditiva":
 
   st.markdown('<h2 style="color:#e61859;">Proposta preditiva</h2>', unsafe_allow_html=True)
-  st.image(
-        "https://www.deeplearningbook.com.br/wp-content/uploads/2022/04/Machine-Learning-Guia-Definitivo.jpeg",
-        use_container_width=True,
-  )
+
+  st.image("https://7793103.fs1.hubspotusercontent-na1.net/hubfs/7793103/Imported_Blog_Media/machine-redimensionado.jpg",use_container_width=True,) 
+
+  st.markdown('<h3 style="color:#e61859;">Queremos entender como os avaliadores de desempenho influeciam e predizem sobre o target que é indicado_bolsa</h3>', unsafe_allow_html=True)
 
   # Código usado para leitura e exibição da tabela
   codigo = """
-  dfp = dfb.sort_index()
-  dfp = dfp.reset_index()  
-  
-  # Aplicando o modelo Prophet
-  model_prophet = Prophet()
-  model_prophet.fit(dfp)
-  future = model_prophet.make_future_dataframe(periods=90, freq='B') # Vamos usar um periodo de 90 dias para frente, com uma frequencia B de dias uteis
-  forecast = model_prophet.predict(future) # Criando as previsoes.
+  df_2022_desempenho = df_2022_limpo[['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN', 'INDICADO_BOLSA']]
   """
 
   # Exibe o código na aplicação
   st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho.head()
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "df_head_preditivo.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  #Alterando o valor indicado_bolsa para um valor binario
+
+  df_2022_desempenho['INDICADO_BOLSA'] = df_2022_desempenho['INDICADO_BOLSA'].map({'Sim': 1, 'Não': 0}) 
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  #Avaliando a quantidade de valores de indicado_bolsa para ver o balanço de valores
+
+  print(df_2022_desempenho['INDICADO_BOLSA'].value_counts())
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "indicados_bolsa_qtd.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  #Avaliando a correlação
+
+  correlation_matrix = df_2022_desempenho.corr().round(2)
+
+  fig, ax = plt.subplots(figsize=(15,10))
+  sns.heatmap(data=correlation_matrix, annot=True, linewidths=.5, ax=ax)
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "grafico_correlacao.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho = shuffle(df_2022_desempenho, random_state=9)
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  set(df_2022_desempenho["INDICADO_BOLSA"])
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  colunas = df_2022_desempenho.columns.difference(['INDICADO_BOLSA'])
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  #Avaliando os valores máximo e min de cada coluna
+  max_vlr = df_2022_desempenho[colunas].max()
+  min_vlr = df_2022_desempenho[colunas].min()
+
+  # Display the results
+  print("Valor Max:")
+  print(max_vlr)
+
+  print("\Valor Min:")
+  print(min_vlr)
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  Valor Max:
+  IAA     10.000020
+  IAN     10.000000
+  IDA      9.916667
+  IEG     10.000000
+  INDE     9.441522
+  IPP      9.218750
+  IPS     10.000000
+  IPV     10.000010
+  dtype: float64
+  \Valor Min:
+  IAA     0.000000
+  IAN     2.500000
+  IDA     0.000000
+  IEG     0.000000
+  INDE    3.031806
+  IPP     0.000000
+  IPS     2.500000
+  IPV     2.500010
+  dtype: float64
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho_indicado = df_2022_desempenho[df_2022_desempenho["INDICADO_BOLSA"] == 1]
+  df_2022_desempenho_nao_indicado = df_2022_desempenho[df_2022_desempenho["INDICADO_BOLSA"] == 0]
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho_indicado
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "df_desempenho_indicado.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho_indicado.mean()
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "df_desempenho_mean.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho_nao_indicado
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "df_desempenho_nao_indicado.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_2022_desempenho_nao_indicado.mean()
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "df_desempenho_nao_indicado_mean.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+  
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  #Avaliando a quantidade de valores de indicado_bolsa para ver o balanço de valores
+
+  print(df_2022_desempenho['INDICADO_BOLSA'].value_counts())
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  INDICADO_BOLSA
+  0    730
+  1    132
+  Name: count, dtype: int64
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  minority_class = df_2022_desempenho[df_2022_desempenho['INDICADO_BOLSA'] == 1]
+  majority_class = df_2022_desempenho[df_2022_desempenho['INDICADO_BOLSA'] == 0]
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  st.markdown('<h3 style="color:#e61859;">Treinamento do modelo usando resample dos dados</h3>', unsafe_allow_html=True)
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  from imblearn.over_sampling import SMOTE
+
+  # Separate features and target
+  X = df_2022_desempenho[['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN']]
+  y = df_2022_desempenho['INDICADO_BOLSA']
+
+
+  smote = SMOTE(sampling_strategy={1: 500}, random_state=42)
+  X_resampled, y_resampled = smote.fit_resample(X, y)
+
+  # Convert the resampled data to a DataFrame
+  synthetic_data = pd.DataFrame(X_resampled, columns=['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN'])
+  synthetic_data['INDICADO_BOLSA'] = y_resampled
+
+  # Combine with the original dataset
+  df_balanced = pd.concat([minority_class, synthetic_data], ignore_index=True)
+
+  print(df_balanced)
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "inicio_treino_modelo.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  print(df_balanced['INDICADO_BOLSA'].value_counts())
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  INDICADO_BOLSA
+  0    730
+  1    632
+  Name: count, dtype: int64
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_balanced = shuffle(df_balanced, random_state=55)
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  df_balanced.tail()
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "df_balanced_tail.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  X = df_balanced[['INDE', 'IAA', 'IEG', 'IPS', 'IDA', 'IPP', 'IPV', 'IAN']]
+  y = df_balanced['INDICADO_BOLSA']
+
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  scaler = StandardScaler()
+  X_train = scaler.fit_transform(X_train)
+  X_test = scaler.fit_transform(X_test)
+  y_train = np.asarray(y_train).reshape((-1, 1))
+  y_test = np.asarray(y_test).reshape((-1, 1))
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  model = Sequential([
+    Dense(32, activation='relu', input_shape=(X_train.shape[1],)),  # Input layer
+    Dense(8, activation='relu'),  # Hidden layer
+    Dropout(0.5),
+    Dense(1, activation='sigmoid')  # Output layer (binary classification)
+  ])
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  model.compile(optimizer=Adam(learning_rate=0.001), loss='binary_crossentropy', metrics=['accuracy'])
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  model.summary()
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "model_sumary.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  epoch=150
+
+  history = model.fit(
+    X_train, y_train,
+    validation_data=(X_test, y_test),
+    shuffle=True,
+    epochs=epoch,
+    batch_size=16,
+    verbose=1
+  )
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  acc = '{:.2%}'.format(history.history['accuracy'][-1])
+  print(f"O modelo possui uma acurácia de {acc} com {epoch} epochs de processamento")
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  O modelo possui uma acurácia de 86.78% com 150 epochs de processamento
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  # Visualizando os resultados de treino
+  acc = history.history['accuracy']
+  val_acc = history.history['val_accuracy']
+
+  loss = history.history['loss']
+  val_loss = history.history['val_loss']
+
+  epochs_range = range(epoch)
+
+  # Plot Acurácia
+  plt.figure(figsize=(20, 8))
+  plt.subplot(1, 2, 1)
+  plt.plot(epochs_range, acc, label='Acurácia de Treinamento')
+  plt.plot(epochs_range, val_acc, label='Acurácia de Validação')
+  plt.legend(loc='lower right')
+  plt.title('Acurácia de treino e teste')
+
+  # Plot Erro de treinamento
+  plt.subplot(1, 2, 2)
+  plt.plot(epochs_range, loss, label='Erro de treinamento')
+  plt.plot(epochs_range, val_loss, label='Erro de Validação')
+  plt.legend(loc='upper right')
+  plt.title('Erro de treinamento vs validação')
+  plt.show()
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "graficos_modelo.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  from sklearn.metrics import classification_report
+  # Predictions
+  y_pred = model.predict(X_test)
+  y_pred_class = [round(x[0]) for x in y_pred]
+  y_test_class = y_test
+
+  # classification report
+  class_names = ['Não', 'Sim']
+
+  print(classification_report(y_test_class, y_pred_class, target_names=class_names))
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+  from PIL import Image
+
+  # Caminho da imagem no computador
+  caminho_imagem = "metrics.jpg"  # Substitua pelo nome ou caminho completo da imagem
+
+  # Abrir a imagem com o Pillow
+  imagem = Image.open(caminho_imagem)
+
+  # Exibir a imagem no Streamlit
+  st.image(imagem)
+
+
+  # Código usado para leitura e exibição da tabela
+  codigo = """
+  model.save("modelo_desempenho_2022.keras")
+
+  joblib.dump(scaler, 'scaler.pkl')
+  """
+
+  # Exibe o código na aplicação
+  st.code(codigo, language='python')
+
+
+  st.markdown('<h3 style="color:#e61859;">Conclusão do modelo</h3>', unsafe_allow_html=True)
+
+  st.write("""O modelo desenvolvido para prever a indicação de bolsas (indicado_bolsa) com base nos avaliadores de desempenho apresentou uma acurácia de 86,78%, 
+              demonstrando eficácia significativa na identificação de padrões associados à variável target.""")
+
+  st.markdown('<h4 style="color:#e61859;">Desempenho Estável e Generalização Adequada</h4>', unsafe_allow_html=True)
+
+  st.write("""A curva de acurácia de treino e teste converge para valores elevados (próximos a 86-90%), indicando que o modelo não sofre de overfitting e generaliza bem para dados não vistos.""")
+
+  st.write("""O erro de treinamento e validação diminui consistentemente ao longo das iterações, estabilizando-se em níveis baixos (próximo a 0,3-0,4), o que reforça a robustez do modelo.""")
+
+  st.markdown('<h4 style="color:#e61859;">Relevância dos Avaliadores de Desempenho</h4>', unsafe_allow_html=True)
+
+  st.write("""A alta acurácia sugere que as variáveis relacionadas aos avaliadores de desempenho (como recomendações, notas ou métricas pedagógicas) 
+            são fatores críticos para prever a indicação de bolsas. Isso ressalta a importância de políticas de acompanhamento contínuo e avaliação criteriosa.""")
+
+
+  st.markdown('<h4 style="color:#e61859;">Implicações Práticas</h4>', unsafe_allow_html=True)
+
+  st.write("""Os resultados indicam que o modelo pode ser utilizado como ferramenta de apoio à decisão para otimizar a distribuição de bolsas, 
+              priorizando alunos cujos indicadores de desempenho alinham-se aos critérios de elegibilidade. Além disso, reforça a 
+              necessidade de integrar avaliações pedagógicas sistemáticas aos processos de seleção.""")
+
+  st.markdown('<h4 style="color:#e61859;">Resumo Final</h4>', unsafe_allow_html=True)
+
+  st.write("""O modelo demonstra alta eficácia (86,78% de acurácia) na previsão de indicações de bolsa, com estabilidade e generalização adequadas. 
+            Isso evidencia a relevância dos avaliadores de desempenho no processo, destacando seu potencial para embasar decisões estratégicas em políticas educacionais.""")
 
 #################################################################################################################################################
 
