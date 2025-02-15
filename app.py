@@ -1000,15 +1000,17 @@ elif menu == "Dashboard":
   st.markdown('<h2 style="color:#e61859;">Dashboard</h2>', unsafe_allow_html=True)
   
   # URL do relatório do Power BI (substitua pelo link do seu relatório)
-  power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiNDBjMDBlYjUtMzRmOC00YzkyLTg5NGUtYTg5MWNhN2JiMDI0IiwidCI6ImVmYTU1OWEyLTJmOTctNGRkNi1hMmFlLThhYjAyZDliMzMyOSJ9"
+  power_bi_url = "https://app.powerbi.com/view?r=eyJrIjoiNmY1NTA5YjEtNDA5Ny00NWMwLTliZmUtY2E1NDZkNTNhMTViIiwidCI6ImVmYTU1OWEyLTJmOTctNGRkNi1hMmFlLThhYjAyZDliMzMyOSJ9"
 
   # Incorporando o Power BI com iframe
-  st.components.v1.iframe(power_bi_url, width=800, height=600)
+  st.components.v1.iframe(power_bi_url, width=1000, height=1000)
+
+  st.write("Se o painel carregar de forma desproporcional, clique no ícone de ajustar à página, ou expanda para tela inteira.")
 
   st.write("Para acessar o dashboard em uma nova página, clique abaixo")
   st.markdown(
       """
-      <a href="https://app.powerbi.com/view?r=eyJrIjoiNDBjMDBlYjUtMzRmOC00YzkyLTg5NGUtYTg5MWNhN2JiMDI0IiwidCI6ImVmYTU1OWEyLTJmOTctNGRkNi1hMmFlLThhYjAyZDliMzMyOSJ9" target="_blank" style="text-decoration:none; color:#e61859; font-size:18px;">
+      <a href="https://app.powerbi.com/view?r=eyJrIjoiNmY1NTA5YjEtNDA5Ny00NWMwLTliZmUtY2E1NDZkNTNhMTViIiwidCI6ImVmYTU1OWEyLTJmOTctNGRkNi1hMmFlLThhYjAyZDliMzMyOSJ9" target="_blank" style="text-decoration:none; color:#e61859; font-size:18px;">
       DASHBOARD</a>
       """,
       unsafe_allow_html=True)    
@@ -1016,46 +1018,50 @@ elif menu == "Dashboard":
 elif menu == "Conclusão":
 
   # Título da aplicação
-  st.markdown('<h2 style="color:#e61859;">Conclusão do Projeto de Análise e Previsão do Preço do Petróleo Brent</h2>', unsafe_allow_html=True)
+  st.markdown('<h2 style="color:#e61859;">Conclusão do Projeto de Análise e Previsão do Impacto da ONG Passos Mágicos</h2>', unsafe_allow_html=True)
 
-  st.write("""O projeto de análise e previsão do preço do petróleo Brent revelou a complexidade inerente a um mercado globalmente 
-            estratégico e altamente volátil. Desde as oscilações históricas impulsionadas por eventos geopolíticos até flutuações sazonais e transições econômicas, 
-            nosso estudo trouxe à tona insights valiosos sobre padrões passados, fatores determinantes e possibilidades futuras, respondendo às principais perguntas que nortearam o trabalho.""")
+  st.write("""O estudo realizado sobre a atuação da ONG Passos Mágicos trouxe à tona evidências concretas do impacto da educação na transformação da 
+            vida de crianças e jovens em situação de vulnerabilidade. Por meio de análises exploratórias e modelagem preditiva, investigamos padrões 
+            de desempenho acadêmico, a evolução dos estudantes ao longo dos anos e os principais fatores que impulsionam o sucesso educacional dentro do programa.""")
 
   st.markdown('<h3 style="color:#e61859;">Respostas às Perguntas do Estudo</h3>', unsafe_allow_html=True)
 
-  st.write("""1. **Quais são os padrões históricos do mercado?**""")
-  st.write("""- Identificamos tendências sazonais claras, como os preços mais baixos em dezembro e janeiro, associados à baixa demanda e estoques elevados, e aumentos significativos em junho e julho devido à alta demanda no verão do hemisfério norte.""")
-  st.write("""- Eventos como a Guerra do Golfo (1990), o pico histórico de 2008 e a queda de 2020, causada pela pandemia de COVID-19, são exemplos das flutuações abruptas que caracterizam esse mercado volátil.""")
+  st.write("""1. **Qual o impacto da ONG no desenvolvimento educacional dos alunos?**""")
+  st.write("""A evolução dos **indicadores educacionais (IAA, INDE e IDA)** mostrou que os alunos atendidos pela ONG tiveram um crescimento significativo ao longo dos anos. 
+            O **INDE subiu de 5.12 em 2020 para 7.65 em 2022**, indicando que a intervenção educacional teve um impacto positivo e consistente, especialmente após os desafios impostos pela pandemia.""")
 
-  st.write("""2. **O que impulsiona as flutuações de preço?**""")
-  st.write("""- **Fatores geopolíticos**: Conflitos no Oriente Médio e decisões da OPEP.""")
-  st.write("""- **Fatores econômicos**: Crises financeiras e transições para fontes renováveis desafiam padrões tradicionais.""")
-  st.write("""- **Fatores sazonais**: Estações do ano alteram a demanda, enquanto estoques e produção influenciam preços.""")
-  st.write("""- **Eventos climáticos**: Furacões e interrupções inesperadas na produção adicionam um elemento imprevisível.""")
+  st.write("""2. **Quais grupos de alunos mais se beneficiaram do programa?**""")
+  st.write("""A análise da distribuição dos estudantes revelou que a maior parte dos alunos está nas categorias **Ametista e Ágata**, que representam níveis de desenvolvimento intermediário e avançado. 
+            No entanto, **os grupos Quartzo e Ágata merecem atenção**, pois ainda possuem margem para crescimento. Estratégias pedagógicas focadas podem ajudar esses estudantes a alcançarem níveis mais elevados de desempenho.""")
 
-  st.write("""3. **Como é possível prever as tendências futuras?**""")
-  st.write("""- Utilizando modelos robustos, como o LSTM, que lidam com padrões complexos e não lineares em cenários voláteis de curto prazo.""")
-  st.write("""- O Prophet mostrou-se eficaz para análises de longo prazo em cenários estáveis, reforçando a importância de usar modelos complementares.""")
 
-  st.markdown('<h3 style="color:#e61859;">Modelo Selecionado</h3>', unsafe_allow_html=True)
-  st.write("""Após comparar Prophet, LSTM e RNN Regressor, o LSTM destacou-se como o mais adequado para previsões operacionais de curto prazo devido à sua 
-            capacidade de capturar padrões não lineares e seu desempenho superior em métricas como MAPE, RMSE e MAE. Enquanto o Prophet continua valioso para análises 
-            estratégicas de longo prazo, o LSTM atende às exigências de precisão e agilidade de um mercado sensível a mudanças rápidas.""")
+  st.write("""3. **Quais fatores influenciam o aprendizado e a evolução dos estudantes?**""")
+  st.write("""Os dados indicam uma **correlação forte (0.85) entre aprendizado (IDA) e desenvolvimento educacional (INDE)**, reforçando que o progresso acadêmico está diretamente ligado ao desenvolvimento global do aluno. 
+            Por outro lado, a relação entre **defasagem escolar e aprendizado é mais fraca (0.18)**, o que sugere que, apesar de dificuldades passadas, os alunos ainda podem alcançar bons resultados com o suporte adequado.""")
 
-  st.markdown('<h3 style="color:#e61859;">Desafios e Relevância</h3>', unsafe_allow_html=True)
-  st.write("""O estudo ressaltou desafios como a imprevisibilidade de eventos geopolíticos, a transição para energias renováveis e a influência de fatores climáticos. 
-            Esses elementos reforçam a necessidade de modelos preditivos que considerem variáveis exógenas para maior precisão.""")
-  st.write("""A análise revelou a resiliência do mercado, evidenciada por padrões de recuperação após choques e pela influência das decisões estratégicas da OPEP. 
-            Esses insights são essenciais para investidores, indústrias e formuladores de políticas públicas, ajudando na gestão de riscos e na tomada de decisões estratégicas.""")
 
-  st.markdown('<h3 style="color:#e61859;">Conclusão Final: O Futuro à Luz do Passado</h3>', unsafe_allow_html=True)
-  st.write("""Assim como o Brent reflete o pulso da economia global, este projeto ilustra o poder transformador da análise de dados.
-            Compreender os padrões históricos e antecipar tendências não é apenas um diferencial competitivo, mas uma necessidade estratégica. 
-            Ao integrar ciência de dados, conhecimento do mercado e modelos avançados, criamos não apenas previsões, mas um mapa para navegar as complexidades de um mundo em constante transformação.""")
-  st.write("""Este estudo demonstrou que a previsão de preços do petróleo Brent exige uma abordagem que equilibre análises quantitativas robustas e considerações qualitativas sobre fatores externos. 
-            O LSTM, com sua capacidade de lidar com padrões complexos, provou ser a melhor escolha para previsões operacionais de curto prazo. No entanto, 
-            o Prophet, com validação cruzada, permanece uma ferramenta valiosa para análises estratégicas de longo prazo.""")
-  st.write("""Compreender padrões históricos e antecipar tendências futuras não é apenas uma vantagem competitiva, mas uma necessidade em um mercado global tão estratégico. 
-            Este estudo reforça a importância de unir ciência de dados, tecnologia e expertise de mercado para enfrentar os desafios e aproveitar as oportunidades de um mundo em constante transformação. 
-            O Brent continuará sendo o termômetro da economia mundial, e, agora, estamos mais preparados para interpretar o que ele nos revela.""")
+  st.write("""4. **Como a pandemia impactou o desempenho dos alunos?**  """)
+  st.write("""O ano de **2021 apresentou uma queda acentuada nos indicadores educacionais**, reflexo dos desafios do ensino remoto e das dificuldades impostas pelo período. 
+            No entanto, a **recuperação observada em 2022** indica que as estratégias da ONG foram eficazes para mitigar os impactos negativos da pandemia e retomar a trajetória de aprendizado.""")
+
+
+  st.markdown('<h3 style="color:#e61859;">Modelo Preditivo para Indicação de Bolsas  </h3>', unsafe_allow_html=True)
+  st.write("""Além da análise exploratória, foi desenvolvido um **modelo de Machine Learning baseado em redes neurais** para prever a indicação de bolsas de estudo. Com uma **acurácia de 86,78%**, o modelo demonstrou 
+            grande eficiência em identificar padrões associados ao desempenho acadêmico dos alunos. Isso reforça a relevância da análise de dados para otimizar a distribuição de bolsas e garantir que os recursos sejam direcionados de forma estratégica.""")
+
+
+  st.markdown('<h3 style="color:#e61859;">Implicações e Recomendações</h3>', unsafe_allow_html=True)
+  st.write("""1. **Apoio Focado para Alunos em Defasagem:** O grupo **Quartzo** e parte do **Ágata** necessitam de suporte adicional para atingir níveis mais altos de desempenho.""")
+  st.write("""2. **Melhoria no Ensino de Português e Inglês:** As médias nessas disciplinas ficaram abaixo da de Matemática, indicando a necessidade de adaptação de métodos pedagógicos.""")
+  st.write("""3. **Aprimoramento das Recomendações Pedagógicas:** A análise indicou que **alunos que receberam mais recomendações apresentaram melhor desempenho no IDA**, reforçando a importância de um monitoramento estruturado.""")
+  st.write("""4. **Uso do Modelo Preditivo para Distribuição de Bolsas:** O modelo pode ser integrado ao processo de avaliação da ONG para priorizar alunos que possuem indicadores compatíveis com os critérios de elegibilidade.""")
+
+
+
+  st.markdown('<h3 style="color:#e61859;">Conclusão Final: Transformando Dados em Oportunidades  </h3>', unsafe_allow_html=True)
+  st.write("""O estudo reafirma a importância do **uso de dados para embasar decisões educacionais** e garantir que intervenções pedagógicas sejam eficazes. A ONG **Passos Mágicos** 
+            não apenas gerou um impacto positivo no desempenho acadêmico dos estudantes, mas também demonstrou como um programa educacional estruturado pode reduzir desigualdades e criar oportunidades reais.""")
+
+  st.write("""A ciência de dados, quando aplicada à educação, **vai além da análise numérica — ela se torna um instrumento para transformar vidas**. Os insights gerados por este projeto podem orientar a ONG na 
+            tomada de decisões estratégicas, garantindo que o crescimento dos alunos seja sustentado e que ainda mais estudantes possam trilhar um caminho de aprendizado e desenvolvimento pessoal.""")
+
